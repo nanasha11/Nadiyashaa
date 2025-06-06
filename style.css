@@ -1,0 +1,958 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* HEADER */
+header {
+  background-color: #222; /* warna gelap untuk header */
+  border-bottom: 2px solid #444;
+  padding: 10px 50px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* jarak antara logo dan judul */
+}
+
+.Logo {
+  height: 60px;
+  width: auto;
+}
+
+header h1 {
+  font-size: 20px;
+  color: #ffd700; /* aksen emas pada judul header */
+}
+
+/* Navigasi */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ffffff; /* warna netral terang */
+  font-size: 18px;
+  padding: 8px 12px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #ffd700; /* aksen emas saat hover */
+  background-color: #333; /* latar gelap saat hover */
+  transform: translateY(-2px);
+}
+
+/* BAGIAN HERO */
+.hero {
+  position: relative;
+  background-image: url("Bogor.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  overflow: hidden; /* agar tidak overflow saat absolute positioning */
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  color: #ffd700;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-size: 30px;
+  max-width: 70%;
+  text-align: left;
+  z-index: 2;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #000000;
+  text-decoration: none;
+  padding: 15px 30px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.cta:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  transform: scale(1.05);
+}
+
+/* CIRCULAR IMAGE GALLERY */
+.circle-image {
+  position: absolute;
+  border: 5px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.map-image {
+  top: 100px;
+  right: 200px;
+  width: 200px;
+  height: 200px;
+}
+
+.nature-image {
+  bottom: 50px;
+  right: 100px;
+  width: 300px;
+  height: 300px;
+}
+
+.circle-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* MAP SECTION */
+#map-section {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #1c1c1c; /* gelap sedikit lebih cerah dari header */
+  border-radius: 8px;
+  position: relative;
+}
+
+.map-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ffd700; /* aksen emas */
+}
+
+.map-title .subtitle {
+  font-style: italic;
+  font-size: 20px;
+  display: block;
+  margin-top: 5px;
+  color: #ccc; /* netral terang */
+}
+
+/* Kontainer map agar lebih kecil */
+/* Kontainer map agar lebih kecil dan tidak menempel ke tepi */
+#map-container {
+  width: 50%; /* sesuaikan sesuai kebutuhan */
+  max-width: 600px; /* batas maksimal lebar */
+  margin: 20px auto;
+  padding: 20px; /* jarak dari tepi kontainer ke map */
+  box-sizing: border-box;
+}
+
+/* Map itu sendiri */
+#mapid {
+  height: 500px; /* lebih kecil dari sebelumnya, misalnya 400px */
+  width: 100%; /* mengikuti lebar kontainer */
+  border: 1px solid #444;
+}
+
+/* TOOL CONTROL MINIMALIS */
+.leaflet-control.minimalist-tools {
+  position: absolute !important;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+  background-color: rgba(34, 34, 34, 0.6); /* gelap transparan */
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.leaflet-control.minimalist-tools button {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #ffd700; /* aksen emas */
+  color: #222; /* gelap untuk teks */
+  transition: background-color 0.3s, transform 0.2s;
+  min-width: 100px;
+  text-align: center;
+}
+
+.leaflet-control.minimalist-tools button:hover {
+  background-color: #e6c200; /* lebih gelap sedikit saat hover */
+  transform: translateY(-2px);
+}
+
+/* LEGEND */
+.legend-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.legend {
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #fff; /* teks putih */
+  min-width: 80px;
+  text-align: center;
+  background-color: #333; /* latar gelap untuk legend */
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .overlay {
+    font-size: 2rem;
+    max-width: 90%;
+  }
+
+  .leaflet-control.minimalist-tools {
+    flex-direction: column;
+  }
+
+  .legend-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .circle-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .map-image {
+    top: 80px;
+    right: 40px;
+  }
+
+  .nature-image {
+    bottom: 20px;
+    right: 40px;
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* SLIDER SECTION */
+.slider-container {
+  overflow-x: auto;
+  display: flex;
+  gap: 20px;
+  padding: 10px 0;
+  scroll-behavior: smooth;
+  margin-top: 20px;
+}
+
+.slide-item {
+  min-width: 300px;
+  background: #222; /* gelap */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+
+.slide-item:hover {
+  transform: scale(1.05);
+}
+
+.slide-nav {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.slide-nav button {
+  padding: 8px 16px;
+  margin: 0 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #ffd700; /* aksen emas */
+  color: #222; /* gelap */
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.slide-nav button:hover {
+  background-color: #e6c200; /* lebih gelap saat hover */
+  transform: translateY(-2px);
+}
+
+/* STYLE BAGIAN CULINARY & FILTER */
+.culinary-section {
+  padding: 50px 20px;
+  background-color: #121212; /* gelap */
+  color: #fff;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ffd700; /* aksen emas */
+}
+
+/* Filter kategori */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #444; /* dasar gelap */
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background-color: #ffd700; /* emas saat hover aktif */
+  color: #222; /* teks gelap saat aktif */
+}
+
+/* Card container */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Card style */
+.card {
+  background-color: #222; /* gelap */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.card-category {
+  display: inline-block;
+  background-color: #555;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: #ffd700; /* aksen emas */
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+.card-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffd700; /* aksen emas */
+}
+
+/* Bagian Wisata Curug */
+#wisata-wisata {
+  padding: 50px 20px;
+  background-color: #1c1c1c; /* warna gelap */
+  color: #fff;
+}
+
+#wisata-wisata .section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #ffd700; /* aksen emas */
+}
+
+/* Container Card */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Card Style */
+.card {
+  background-color: #222; /* gelap */
+  border-radius: 10px;
+  width: 300px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #ffd700; /* aksen emas */
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+/* Container agar bisa discroll horizontal */
+.scroll-container {
+  overflow-x: auto; /* Membuat scroll horizontal */
+  padding-bottom: 10px; /* Memberi jarak bawah agar scrollbar tidak menempel card */
+}
+
+/* Buat card-container sebagai flex row */
+.card-container {
+  display: flex;
+  gap: 20px;
+  /* Tidak perlu lebar tetap, biarkan otomatis */
+  min-width: max-content; /* Pastikan container cukup lebar untuk semua card */
+}
+
+/* Styling tombol navigasi */
+.slide-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+#prevBtn,
+#nextBtn {
+  padding: 8px 16px;
+  background-color: #ffd700;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+#prevBtn:hover,
+#nextBtn:hover {
+  background-color: #e6c200;
+}
+
+/* Container scroll horizontal */
+.scroll-container {
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+}
+
+/* Card container as flex row */
+.card-container {
+  display: flex;
+  gap: 20px;
+  min-width: max-content;
+}
+
+.scroll-container {
+  display: flex;
+  overflow-x: hidden; /* Ubah dari auto ke hidden agar tidak scroll otomatis */
+  scroll-behavior: smooth;
+  gap: 20px;
+  padding: 10px 0;
+  margin-top: 10px;
+}
+
+.card {
+  min-width: 250px; /* Lebar kartu */
+  background-color: #222;
+  padding: 15px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+body {
+  background-color: #000;
+}
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  margin-top: 20px; /* Tambahkan ini agar judul lebih ke bawah */
+  color: #ffd700; /* aksen emas */
+}
+
+/* Culinary */
+.culinary-section {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px; /* Bisa dikurangi atau dihilangkan jika ingin lebih ke atas */
+  /* Tambahkan/mengurangi margin-top jika perlu, contoh: */
+  margin-top: 40px; /* Jika ingin lebih ke atas, kecilkan nilainya */
+  color: #ffd700; /* aksen emas */
+}
+
+/* WISATA Container gulir horizontal */
+.scroll-container {
+  display: flex;
+  overflow-x: hidden; /* Agar scrollbar tidak tampil */
+  scroll-behavior: smooth; /* Animasi halus */
+}
+/* Kartu wisata */
+.card {
+  min-width: 250px;
+  max-width: 250px;
+  background-color: #222;
+  color: #fff;
+  margin-right: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+/* Judul kartu */
+.card h3 {
+  font-size: 1.2em;
+  margin-bottom: 8px;
+}
+/* Deskripsi */
+.card p {
+  font-size: 0.9em;
+  margin: 4px 0;
+}
+
+/* Style untuk section About Us */
+.about-section {
+  background-color: #222; /* Sesuaikan dengan warna background gambar */
+  padding: 50px 20px; /* Jarak internal */
+  margin-top: 50px; /* Jarak dari bagian atas sebelumnya */
+  color: #fff;
+  box-sizing: border-box; /* Pastikan padding dihitung termasuk lebar total */
+}
+
+/* Kontainer utama agar flexrow */
+.about-container {
+  display: flex;
+  flex-wrap: wrap; /* agar responsif */
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Bagian teks */
+.about-text {
+  flex: 1 1 45%;
+  padding: 20px;
+}
+
+.about-text h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+/* Bagian gambar */
+.about-image {
+  flex: 1 1 45%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsif untuk tampilan kecil */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+  }
+
+  .about-text,
+  .about-image {
+    flex: 1 1 100%;
+    padding: 10px;
+  }
+
+  .about-text h2 {
+    font-size: 1.5em;
+  }
+}
+
+/* Pastikan gambar memiliki ukuran sama dan tidak meluas melebihi batas */
+.curug {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+/* Set ukuran gambar agar sama dan tidak pecah */
+.gallery-item img {
+  width: 100%;
+  height: 150px; /* Atur tinggi sesuai keinginan */
+  object-fit: cover; /* Memastikan gambar terpotong agar tetap proporsional dan memenuhi area */
+  border-radius: 8px;
+}
+
+/* Styling caption */
+.caption {
+  text-align: center;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #ffd700;
+}
+
+/* Styling section Author */
+#author {
+  background-color: #222;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+#author h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #ffd700; /* Judul */
+}
+
+/* Container utama */
+.author-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Gambar author */
+.author-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+/* Deskripsi author */
+.author-description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #e0e0e0; /* Warna abu-abu muda untuk deskripsi */
+}
+
+/* Styling section contact */
+#contact {
+  background-color: #111; /* Sesuaikan warna sesuai gambar */
+  color: #e0e0e0;
+  padding: 60px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.social-icons .icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.social-icons .icon:hover {
+  background-color: #555;
+}
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.column h3 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.column ul li {
+  margin-bottom: 8px;
+}
+
+.column ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.column ul li a:hover {
+  color: #ddd;
+}
+
+/* Container utama */
+.kartu-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1200px; /* Lebar lebih luas */
+  width: 90%; /* Pastikan responsive */
+  margin: 20px auto; /* Tengah dan jarak atas-bawah */
+  padding: 10px;
+  height: 100vh; /* Tinggi penuh viewport */
+  background-color: #000000; /* Warna latar belakang */
+}
+
+.kartu {
+  display: flex;
+  background-color: #222;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  width: 1150px; /* lebar tetap */
+  margin: 0 auto;
+
+  /* Mengatur tinggi agar lebih lebar ke bawah */
+  min-height: 250px; /* sesuaikan sesuai kebutuhan */
+}
+
+/* Gambar restoran */
+.kartu-image {
+  flex: 0 0 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
+.kartu-image img {
+  width: 200px; /* Sesuaikan ukuran yang diinginkan */
+  height: 170px; /* Sesuaikan ukuran yang diinginkan */
+  object-fit: cover; /* Untuk menjaga proporsi gambar dan memotong gambar agar sesuai */
+}
+
+/* Konten teks */
+.kartu-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.kartu-content h3 {
+  margin-bottom: 8px;
+  color: #ffd700;
+}
+.kartu-content p {
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+.kartu-content ul {
+  list-style: none;
+  padding-left: 15px;
+}
+.kartu-content li {
+  margin-bottom: 8px;
+  font-size: 0.95em;
+  color: #ffffff;
+}
+.kartu-content strong {
+  font-weight: bold;
+}
+
+/* Isi legenda */
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.legend-symbol {
+  background: white;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  max-height: 300px;
+  overflow-y: auto;
+  transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+}
+
+.legend-symbol.collapsed {
+  width: 45px;
+  height: 45px;
+  padding: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.legend-symbol.collapsed::before {
+  content: "\f0cb"; /* Font Awesome icon: fa-list */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 20px;
+  color: #333;
+}
+
+/* Judul legenda */
+.legend-symbol h4 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.legend-symbol h5 {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Setiap item dalam legenda */
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+/* Simbol icon */
+.legend-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: white;
+  font-size: 14px;
+  background-color: #999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.legend-line {
+  width: 30px;
+  height: 0;
+  margin-right: 6px;
+  border-top: 3px solid black;
+  display: inline-block;
+  vertical-align: middle;
+}

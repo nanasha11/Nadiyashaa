@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEBGIS Kabupaten Bogor</title>
+
+    <!-- CSS Eksternal -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- Leaflet Control Geocoder CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="header-top">
+        <div class="logo-title">
+          <img src="Logo.png" alt="Logo Kabupaten Bogor" class="Logo" />
+          <h1>Yuk!NgaBogor</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#map">Map</a></li>
+            <li><a href="wisata.html">Tour</a></li>
+            <li><a href="culinary.html">Culinary</a></li>
+            <li><a href="#author">Author</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="destinasi">
+      <div class="overlay">
+        <h2>EKSPLORASI KABUPATEN BOGOR<br />ALAM DAN RASA YANG BIKIN NAGIH</h2>
+      </div>
+      <div class="circle-image map-image">
+        <img src="Bulat.jpg" alt="Map and Plane" />
+      </div>
+      <div class="circle-image nature-image">
+        <img src="Bulatt.jpg" alt="Nature River" />
+      </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about-us" class="about-section">
+      <div class="about-container">
+        <div class="about-text">
+          <h2 class="section-title">About Us</h2>
+          <p>
+            Yuk!NgaBogor merupakan website yang menghadirkan informasi mengenai
+            destinasi wisata khususnya berbagai curug (air terjun) yang menarik
+            untuk dikunjungi. Melalui website ini, pengunjung dapat menemukan
+            ulasan detail tentang lokasi, tiket masuk, jam operasional, serta
+            daya tarik setiap curug di Kabupaten Bogor. Selain itu, website ini
+            juga memberikan rekomendasi Tempat Makan, baik untuk keluarga maupun
+            pergi dengan teman-teman. Dengan konten yang terus diperbarui,
+            website ini menjadi sumber informasi terpercaya bagi masyarakat
+            lokal maupun wisatawan yang ingin menikmati pesona alam dan kuliner
+            Kabupaten Bogor.
+          </p>
+        </div>
+        <div class="about-image">
+          <img src="sentul.jpg" alt="kab Bogor" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map" class="map">
+      <h2 class="map-title">
+        MAP <span class="subtitle">(Peta Persebaran)</span>
+      </h2>
+      <div id="mapid"></div>
+      <!-- Buttons Layer -->
+      <div class="custom-buttons">
+        <button onclick="setBasemap('streets')">Map Streets</button>
+        <button onclick="setBasemap('satellite')">Satellite</button>
+      </div>
+      <div id="map"></div>
+    </section>
+
+    <!-- Section Author -->
+    <section id="author">
+      <h2>Tentang Saya</h2>
+      <div class="author-container">
+        <img src="Profil.jpg" alt="Author" class="author-image" />
+        <p class="author-description">
+          Hai! Saya Nadiya Sabila Hasanah, mahasiswa Program Studi Sains
+          Informasi Geografi di Universitas Pendidikan Indonesia. Website ini
+          saya buat sebagai bagian dari tugas akhir mata kuliah WEBGIS pada
+          semester 4. Saya memilih tema mengenai pariwisata, khususnya
+          curug-curug dan cafe serta rumah makan yang ada di Kabupaten Bogor,
+          karena saya memiliki ketertarikan personal untuk mengeksplorasi
+          keindahan alam dan tempat-tempat kuliner di daerah tersebut. Selain
+          itu, Kabupaten Bogor merupakan kampung halaman saya, sehingga saya
+          merasa sangat dekat secara emosional dan memiliki motivasi untuk
+          mengenalkan potensi wisata daerah ini melalui media digital.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-container">
+        <h2 class="section-title">WEBGIS Kabupaten Bogor</h2>
+        <p class="description">
+          Website informasi wisata yang menyajikan data mengenai destinasi
+          wisata alam, khususnya curug (air terjun), serta wisata kuliner
+          seperti café dan rumah makan yang ada di Kabupaten Bogor. Melalui web
+          ini, pengguna dapat menemukan lokasi, deskripsi, dan daya tarik dari
+          berbagai tempat wisata yang menarik untuk dikunjungi di wilayah
+          Kabupaten Bogor.
+        </p>
+        <div class="social-icons">
+          <a
+            href="https://www.facebook.com/share/1ABFoiownf/"
+            class="icon"
+            aria-label="Facebook"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/nadiyashaa?igsh=MXBscHJreXY5cmc5Ng=="
+            class="icon"
+            aria-label="Instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/nadiya-sabila-03nsh051000"
+            class="icon"
+            aria-label="LinkedIn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+        <div class="footer-columns">
+          <div class="column">
+            <h3>Useful Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="#about-us">About Us</a></li>
+              <li><a href="#map-section">Map</a></li>
+              <li><a href="wisata.html">Tour</a></li>
+              <li><a href="culinary.html">Culinary</a></li>
+              <li><a href="#author-section">Author</a></li>
+              <li><a href="#contact-section">Contact</a></li>
+            </ul>
+          </div>
+          <div class="column">
+            <h3>Our Services</h3>
+            <ul>
+              <li>Interactive Map</li>
+              <li>Natural Tourism Information</li>
+              <li>Culinary Information</li>
+              <li>Photo Galerry</li>
+              <li>Tourist Recommendations</li>
+            </ul>
+          </div>
+          <div class="column">
+            <h3>Contact Us</h3>
+            <p>Nadiya Sabila Hasanah</p>
+            <p>Bandung, BDG 3273</p>
+            <p>Indonesia</p>
+            <p>Phone: +62 895 3652 64664</p>
+            <p>Email: nadiyashaa10@gmail.com</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Scripts -->
+    <!-- Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- jQuery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- Leaflet EasyButton -->
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
+    <!-- Leaflet Locate Control -->
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
+    <!-- Additional plugins if needed -->
+    <!-- Your custom script -->
+    <script src="script.js"></script>
+  </body>
+</html>
